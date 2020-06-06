@@ -4,13 +4,16 @@
 #include <ctype.h>
 #include <math.h>
 
-int count_words(string str){
+int count_words(string str)
+{
     
     int c = 1;
     
-    for(int i = 0; i < strlen(str); i++){
+    for(int i = 0; i < strlen(str); i++)
+    {
         
-        if (isblank(str[i]) != 0){
+        if (isblank(str[i]) != 0)
+        {
             c++;
         }
     }
@@ -18,12 +21,15 @@ int count_words(string str){
     return c;
 }
 
-int count_letters(string str){
+int count_letters(string str)
+{
     int c = 0;
     
-    for(int i = 0; i < strlen(str); i++){
+    for(int i = 0; i < strlen(str); i++)
+    {
         
-        if (isalpha(str[i]) != 0){
+        if (isalpha(str[i]) != 0)
+        {
             c++;
         }
     }
@@ -31,12 +37,15 @@ int count_letters(string str){
     return c;
 }
 
-int count_sentences(string str){
+int count_sentences(string str)
+{
     int c = 0;
     
-    for(int i = 0; i < strlen(str); i++){
+    for(int i = 0; i < strlen(str); i++)
+    {
         
-        if (str[i] == '.' || str[i] == '!' || str[i]== '?'){
+        if (str[i] == '.' || str[i] == '!' || str[i]== '?')
+        {
             c++;
         }
     }
@@ -44,7 +53,8 @@ int count_sentences(string str){
     return c;
 }
 
-int main(void){
+int main(void)
+{
     string t = get_string("Text: ");
     
     float le = (float)count_letters(t);
@@ -58,13 +68,16 @@ int main(void){
     
     int index = round(0.0588 * L - 0.296 * S - 15.8);
     
-    if (index < 1){
+    if (index < 1)
+    {
         printf("Before Grade 1\n");
     }
-    else if (index > 16){
+    else if (index > 16)
+    {
         printf(" Grade 16+\n");
     }
-    else{
+    else
+    {
         printf("Grade %i\n", index);
     }
 

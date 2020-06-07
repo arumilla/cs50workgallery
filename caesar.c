@@ -34,17 +34,16 @@ int main(int argc, string argv[])
         for (int i = 0; change[i] != '\0'; i++){
             chara = change[i];
             int check = 0;
+            int a = 0;
         
             if (isalpha(chara))
             {
                 if (isupper(chara))
                 {
-                    /*ini = chara - 65;
-                    inf = (ini + key) % 26;*/
-                
                     check = chara + key;
                     if (check > 90){
-                        chara = chara + (check%90);
+                        a = chara - 65;
+                        chara = ((a + key)%26) + 65;
                     }
                     else {
                         chara = chara + key;
@@ -55,8 +54,10 @@ int main(int argc, string argv[])
                 else
                 {
                     check = chara + key;
-                    if (check > 122){
-                        chara = chara + (check%122);
+                    if (check > 122)
+                    {
+                        a = chara - 97;
+                        chara = ((a + key)%26) + 97;
                     }
                     else {
                         chara = chara + key;

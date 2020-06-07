@@ -33,8 +33,7 @@ int main(int argc, string argv[])
     
         for (int i = 0; change[i] != '\0'; i++){
             chara = change[i];
-            int ini = 0;
-            int inf = 0;
+            int check = 0;
         
             if (isalpha(chara))
             {
@@ -43,18 +42,27 @@ int main(int argc, string argv[])
                     /*ini = chara - 65;
                     inf = (ini + key) % 26;*/
                 
-                    chara = chara + key;
+                    check = chara + key;
+                    if (check > 90){
+                        chara = chara + (check%90);
+                    }
+                    else {
+                        chara = chara + key;
+                    }
                     
                     printf("%c", chara);
                 }
                 else
                 {
-                    /*ini = chara - 97;
-                    inf = (ini + key) % 26;*/
-                
-                chara = chara + key;
-                
-                printf("%c", chara);
+                    check = chara + key;
+                    if (check > 122){
+                        chara = chara + (check%122);
+                    }
+                    else {
+                        chara = chara + key;
+                    }
+                    
+                    printf("%c", chara);
                 }
             }
             else 

@@ -11,13 +11,12 @@ int main(int argc, string argv[])
     int key = atoi(argv[1]);
     char chara;
 
-    //char arg[strlen(argv[1])] = stcpy( arg, argv[1]);
     if (argc != 2)
     {
         printf("Usage: ./caesar key \n");
         return 1;
     }
-    else
+    else if (argc == 2)
     {
         for (int i = 0; i < strlen(argv[1]); i++)
         {

@@ -85,10 +85,10 @@ void print_winner(void)
         if(candidates[i].votes > mv){
             winner = candidates[i].name;
             mv = candidates[i].votes;
-        }else if(candidates[i].votes == mv){
+        }/*else if(candidates[i].votes == mv){
             strcat(winner,strcat(" ,", candidates[i].name));
             mv = candidates[i].votes;
-        }
+        }*/
     }
     
     printf("%s\n",winner);

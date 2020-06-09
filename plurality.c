@@ -96,9 +96,9 @@ void print_winner(void)
     }
     
     for(int i = 0; i < win; i++){
-        printf("%s ", winner[i]);
+        printf("%s\n", winner[i]);
     }
-    printf("\n");
+    //printf("\n");
     return;
 }
 

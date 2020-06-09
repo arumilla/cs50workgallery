@@ -82,7 +82,7 @@ void print_winner(void)
     int mv = 0;
     int win = 0;
     
-    for(int i = 1; i < candidate_count; i++){
+    for(int i = 0; i < candidate_count; i++){
         if(candidates[i].votes > mv){
             mv = candidates[i].votes;
         }

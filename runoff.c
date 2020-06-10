@@ -168,8 +168,8 @@ bool print_winner(void)
         }
     }
     
-    if(ws == 1){
-        printf("%s", winner);
+    if(ws > 0 && ws < 2){
+        printf("%s\n", winner);
         return true;
     }
     

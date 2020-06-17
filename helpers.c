@@ -356,15 +356,6 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
     
-    RGBTRIPLE newImage[height][width];
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
-            newImage[i][j] = image[i][j];
-        }
-    }
-
     for (int i = 0, redx, greenx, bluex, redy, greeny, bluey, rf, bf, gf; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -381,82 +372,82 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             // gy below pixel (zero for x)
             if (i >= 0 && j - 1 >= 0)
             {
-                redy += newImage[i][j-1].rgbtRed * 2;
-                greeny += newImage[i][j-1].rgbtGreen * 2;
-                bluey += newImage[i][j-1].rgbtBlue * 2;
+                redy += image[i][j-1].rgbtRed * 2;
+                greeny += image[i][j-1].rgbtGreen * 2;
+                bluey += image[i][j-1].rgbtBlue * 2;
                 
             }
             // gx right pixel (0 for y)
             if ((i >= 0 && j + 1 >= 0) && (i >= 0 && j + 1 < width))
             {
-                redx += newImage[i][j+1].rgbtRed * 2;
-                greenx += newImage[i][j+1].rgbtGreen * 2;
-                bluex += newImage[i][j+1].rgbtBlue * 2;
+                redx += image[i][j+1].rgbtRed * 2;
+                greenx += image[i][j+1].rgbtGreen * 2;
+                bluex += image[i][j+1].rgbtBlue * 2;
                 
             }
             // gx left pixel (0 for y)
             if (i - 1 >= 0 && j >= 0)
             {
-                redx += newImage[i-1][j].rgbtRed * -2;
-                greenx += newImage[i-1][j].rgbtGreen * -2;
-                bluex += newImage[i-1][j].rgbtBlue * -2;
+                redx += image[i-1][j].rgbtRed * -2;
+                greenx += image[i-1][j].rgbtGreen * -2;
+                bluex += image[i-1][j].rgbtBlue * -2;
                 
             }
             // gx and gy left below pixel
             if (i - 1 >= 0 && j - 1 >= 0)
             {
                 //gx
-                redx += newImage[i-1][j-1].rgbtRed * -1;
-                greenx += newImage[i-1][j-1].rgbtGreen * -1;
-                bluex += newImage[i-1][j-1].rgbtBlue * -1;
+                redx += image[i-1][j-1].rgbtRed * -1;
+                greenx += image[i-1][j-1].rgbtGreen * -1;
+                bluex += image[i-1][j-1].rgbtBlue * -1;
                 //gy
-                redy += newImage[i-1][j-1].rgbtRed * 1;
-                greeny += newImage[i-1][j-1].rgbtGreen * 1;
-                bluey += newImage[i-1][j-1].rgbtBlue * 1;
+                redy += image[i-1][j-1].rgbtRed * 1;
+                greeny += image[i-1][j-1].rgbtGreen * 1;
+                bluey += image[i-1][j-1].rgbtBlue * 1;
             }
             // gx and gy left upper pixel
             if ((i - 1 >= 0 && j + 1 >= 0) && (i - 1 >= 0 && j + 1 < width))
             {
                 //gx
-                redx += newImage[i-1][j+1].rgbtRed * -1;
-                greenx += newImage[i-1][j+1].rgbtGreen * -1;
-                bluex += newImage[i-1][j+1].rgbtBlue * -1;
+                redx += image[i-1][j+1].rgbtRed * -1;
+                greenx += image[i-1][j+1].rgbtGreen * -1;
+                bluex += image[i-1][j+1].rgbtBlue * -1;
                 //gy
-                redy += newImage[i-1][j+1].rgbtRed * -1;
-                greeny += newImage[i-1][j+1].rgbtGreen * -1;
-                bluey += newImage[i-1][j+1].rgbtBlue * -1;
+                redy += image[i-1][j+1].rgbtRed * -1;
+                greeny += image[i-1][j+1].rgbtGreen * -1;
+                bluey += image[i-1][j+1].rgbtBlue * -1;
             }
             // gy upper pixel (0 for x)
             if ((i + 1 >= 0 && j >= 0) && (i + 1 < height && j >= 0))
             {
-                redy += newImage[i+1][j].rgbtRed * -2;
-                greeny += newImage[i+1][j].rgbtGreen * -2;
-                bluey += newImage[i+1][j].rgbtBlue * -2;
+                redy += image[i+1][j].rgbtRed * -2;
+                greeny += image[i+1][j].rgbtGreen * -2;
+                bluey += image[i+1][j].rgbtBlue * -2;
                 
             }
             // gx and gy below right pixel
             if ((i + 1 >= 0 && j - 1 >= 0) && (i + 1 < height && j - 1 >= 0))
             {
                 //gx
-                redx += newImage[i+1][j-1].rgbtRed * 1;
-                greenx += newImage[i+1][j-1].rgbtGreen * 1;
-                bluex += newImage[i+1][j-1].rgbtBlue * 1;
+                redx += image[i+1][j-1].rgbtRed * 1;
+                greenx += image[i+1][j-1].rgbtGreen * 1;
+                bluex += image[i+1][j-1].rgbtBlue * 1;
                 //gy
-                redy += newImage[i+1][j-1].rgbtRed * 1;
-                greeny += newImage[i+1][j-1].rgbtGreen * 1;
-                bluey += newImage[i+1][j-1].rgbtBlue * 1;
+                redy += image[i+1][j-1].rgbtRed * 1;
+                greeny += image[i+1][j-1].rgbtGreen * 1;
+                bluey += image[i+1][j-1].rgbtBlue * 1;
             }
             // gx and gy upper right pixel
             if ((i + 1 >= 0 && j + 1 >= 0) && (i + 1 < height && j + 1 < width))
             {
                 //gx
-                redx += newImage[i+1][j+1].rgbtRed * 1;
-                greenx += newImage[i+1][j+1].rgbtGreen * 1;
-                bluex += newImage[i+1][j+1].rgbtBlue * 1;
+                redx += image[i+1][j+1].rgbtRed * 1;
+                greenx += image[i+1][j+1].rgbtGreen * 1;
+                bluex += image[i+1][j+1].rgbtBlue * 1;
                 //gy
-                redx += newImage[i+1][j+1].rgbtRed * -1;
-                greenx += newImage[i+1][j+1].rgbtGreen * -1;
-                bluex += newImage[i+1][j+1].rgbtBlue * -1;
+                redx += image[i+1][j+1].rgbtRed * -1;
+                greenx += image[i+1][j+1].rgbtGreen * -1;
+                bluex += image[i+1][j+1].rgbtBlue * -1;
             }
             rf = round(sqrt((pow(redx, 2)) + (pow(redy, 2))));
             gf = round(sqrt((pow(greenx, 2)) + (pow(greeny, 2))));

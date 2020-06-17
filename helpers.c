@@ -458,9 +458,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 greenx += newImage[i+1][j+1].rgbtGreen * -1;
                 bluex += newImage[i+1][j+1].rgbtBlue * -1;
             }
-            rf = round(sqrt((redx * redx) + (redy * redy)));
-            gf = round(sqrt((greenx * greenx) + (greeny * greeny)));
-            bf = round(sqrt((bluex * bluex) + (bluey * bluey)));
+            rf = round(sqrt((pow(redx, 2)) + (pow(redy, 2))));
+            gf = round(sqrt((pow(greenx, 2)) + (pow(greeny, 2))));
+            bf = round(sqrt((pow(bluex,2)) + (pow(bluey,2))));
             
             
             if (rf > 255){

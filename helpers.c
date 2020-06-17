@@ -355,21 +355,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
-    
-    for (int i = 0, redx, greenx, bluex, redy, greeny, bluey, rf, bf, gf; i < height; i++)
+    int redx; int greenx; int bluex; int redy; int greeny; int bluey; int rf; int bf; int gf;
+    for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            redx = greenx = bluex = redy = bluey = greeny = 0;
+            redx = greenx = bluex = redy = bluey = greeny = rf = bf = gf = 0;
             // center pixel(zero for both)
-            /*if (i >= 0 && j >= 0)
-            {
-                red += newImage[i][j].rgbtRed;
-                green += newImage[i][j].rgbtGreen;
-                blue += newImage[i][j].rgbtBlue;
-                counter++;
-            }*/
-            // gy below pixel (zero for x)
+            
+            // gy bottom pixel (zero for x)
             if (i >= 0 && j - 1 >= 0)
             {
                 redy += image[i][j-1].rgbtRed * 2;
@@ -393,7 +387,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 bluex += image[i-1][j].rgbtBlue * -2;
                 
             }
-            // gx and gy left below pixel
+            // gx and gy bottom left pixel
             if (i - 1 >= 0 && j - 1 >= 0)
             {
                 //gx
@@ -405,7 +399,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 greeny += image[i-1][j-1].rgbtGreen * 1;
                 bluey += image[i-1][j-1].rgbtBlue * 1;
             }
-            // gx and gy left upper pixel
+            // gx and gy top left pixel
             if ((i - 1 >= 0 && j + 1 >= 0) && (i - 1 >= 0 && j + 1 < width))
             {
                 //gx
@@ -417,7 +411,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 greeny += image[i-1][j+1].rgbtGreen * -1;
                 bluey += image[i-1][j+1].rgbtBlue * -1;
             }
-            // gy upper pixel (0 for x)
+            // gy top pixel (0 for x)
             if ((i + 1 >= 0 && j >= 0) && (i + 1 < height && j >= 0))
             {
                 redy += image[i+1][j].rgbtRed * -2;
@@ -425,7 +419,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 bluey += image[i+1][j].rgbtBlue * -2;
                 
             }
-            // gx and gy below right pixel
+            // gx and gy bottom right pixel
             if ((i + 1 >= 0 && j - 1 >= 0) && (i + 1 < height && j - 1 >= 0))
             {
                 //gx
@@ -437,7 +431,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 greeny += image[i+1][j-1].rgbtGreen * 1;
                 bluey += image[i+1][j-1].rgbtBlue * 1;
             }
-            // gx and gy upper right pixel
+            // gx and gy top right pixel
             if ((i + 1 >= 0 && j + 1 >= 0) && (i + 1 < height && j + 1 < width))
             {
                 //gx

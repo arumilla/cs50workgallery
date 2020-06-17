@@ -360,7 +360,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            redx = greenx = bluex = redy = bluey = greeny = rf = bf = gf = 0;
+            redx = 0; greenx = 0; bluex = 0; redy = 0; bluey = 0; greeny = 0; rf = 0; bf = 0; gf = 0;
             // center pixel(zero for both)
 
             // gx left pixel (zero for y)
@@ -444,26 +444,28 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 greenx += image[i+1][j+1].rgbtGreen * -1;
                 bluex += image[i+1][j+1].rgbtBlue * -1;
             }
-            rf = round(sqrt((pow(redx, 2)) + (pow(redy, 2))));
-            gf = round(sqrt((pow(greenx, 2)) + (pow(greeny, 2))));
-            bf = round(sqrt((pow(bluex,2)) + (pow(bluey,2))));
+            
+            //process nums
+            rf = round(sqrt(((pow(redx, 2)) + (pow(redy, 2)))));
+            gf = round(sqrt(((pow(greenx, 2)) + (pow(greeny, 2)))));
+            bf = round(sqrt(((pow(bluex,2)) + (pow(bluey,2)))));
             
             
-            if (rf > 255){
+            if (rf >= 255){
                 image[i][j].rgbtRed = 255;
             }
             else{
                 image[i][j].rgbtRed = rf;
             }
             
-            if (gf > 255){
+            if (gf >= 255){
                 image[i][j].rgbtGreen = 255;
             }
             else{
                 image[i][j].rgbtGreen = gf;
             }
             
-            if (bf > 255){
+            if (bf >= 255){
                 image[i][j].rgbtBlue = 255;
             }
             else{

@@ -372,7 +372,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 
             }
             // gx right pixel (0 for y)
-            if ((i >= 0 && j + 1 >= 0) && (i >= 0 && j + 1 < width))
+            if (/*(i >= 0 && j + 1 >= 0) && */(i >= 0 && j + 1 < width))
             {
                 redx += image[i][j+1].rgbtRed * 2;
                 greenx += image[i][j+1].rgbtGreen * 2;
@@ -388,7 +388,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 
             }
             // gy bottom pixel (0 for x)
-            if ((i + 1 >= 0 && j >= 0) && (i + 1 < height && j >= 0))
+            if (/*(i + 1 >= 0 && j >= 0) && */(i + 1 < height && j >= 0))
             {
                 redy += image[i+1][j].rgbtRed * -2;
                 greeny += image[i+1][j].rgbtGreen * -2;
@@ -408,7 +408,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 bluey += image[i-1][j-1].rgbtBlue * 1;
             }
             // gx and gy top right pixel
-            if ((i - 1 >= 0 && j + 1 >= 0) && (i - 1 >= 0 && j + 1 < width))
+            if (/*(i - 1 >= 0 && j + 1 >= 0) && */(i - 1 >= 0 && j + 1 < width))
             {
                 //gx
                 redx += image[i-1][j+1].rgbtRed * 1;
@@ -421,7 +421,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             }
             
             // gx and gy bottom left pixel
-            if ((i + 1 >= 0 && j - 1 >= 0) && (i + 1 < height && j - 1 >= 0))
+            if (/*(i + 1 >= 0 && j - 1 >= 0) && */(i + 1 < height && j - 1 >= 0))
             {
                 //gx
                 redx += image[i+1][j-1].rgbtRed * -1;
@@ -433,7 +433,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 bluey += image[i+1][j-1].rgbtBlue * -1;
             }
             // gx and gy bottom right pixel
-            if ((i + 1 >= 0 && j + 1 >= 0) && (i + 1 < height && j + 1 < width))
+            if (/*(i + 1 >= 0 && j + 1 >= 0) && */(i + 1 < height && j + 1 < width))
             {
                 //gx
                 redx += image[i+1][j+1].rgbtRed * 1;
@@ -451,24 +451,31 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             bf = round(sqrt(((pow(bluex,2)) + (pow(bluey,2)))));
             
             
-            if (rf >= 255){
+            if (rf >= 255)
+            {
                 image[i][j].rgbtRed = 255;
             }
-            else{
+            else
+            {
                 image[i][j].rgbtRed = rf;
             }
             
-            if (gf >= 255){
+            
+            if (gf >= 255)
+            {
                 image[i][j].rgbtGreen = 255;
             }
-            else{
+            else
+            {
                 image[i][j].rgbtGreen = gf;
             }
+            
             
             if (bf >= 255){
                 image[i][j].rgbtBlue = 255;
             }
-            else{
+            else
+            {
                 image[i][j].rgbtBlue = bf;
             }
         }

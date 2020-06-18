@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     BYTE buffer[512];
     int inum = 0;
     FILE *img = NULL;
-    char *filename = malloc(sizeof(char)+1);
+    char *name = malloc(sizeof(char)+1);
     
     
     
@@ -28,8 +28,8 @@ int main(int argc, char *argv[])
         //check header for jpeg
         if (img == NULL && buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0 && inum == 00)
         {
-            sprintf(filename, "%03i.jpg", inum);
-            img = fopen(filename, "w");
+            sprintf(name, "%03i.jpg", inum);
+            img = fopen(name, "w");
             fwrite(buffer, 512, 1, img);
             inum++;
             
@@ -37,8 +37,8 @@ int main(int argc, char *argv[])
         else if (img != NULL && buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
             fclose(img);
-            sprintf(filename, "%03i.jpg", inum);
-            img = fopen(filename, "w");
+            sprintf(name, "%03i.jpg", inum);
+            img = fopen(name, "w");
             fwrite(buffer, 512, 1, img);
             inum++;
         }
@@ -49,5 +49,5 @@ int main(int argc, char *argv[])
         
     }
     fclose(f);
-    free(filename);
+    free(name);
 }

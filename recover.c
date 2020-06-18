@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
     while(fread(buffer, 512, 1, f))
     {
         //check header for jpeg
-        if (img == NULL && buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
+        if (img == NULL && buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0 && inum == 0)
         {
             sprintf(filename, "%03i.jpg", inum);
             img = fopen(filename, "w");

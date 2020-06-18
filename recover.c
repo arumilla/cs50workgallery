@@ -14,12 +14,6 @@ int main(int argc, char *argv[])
     }
     //open file
     FILE *f = fopen(argv[1], "r");
-    if (f == NULL)
-    {
-        printf("File could not be opened for reading");
-        return 1;
-    }
-    
     
     BYTE buffer[512];
     int inum = 0;

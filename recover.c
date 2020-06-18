@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     BYTE buffer[512];
     int inum = 0;
     FILE *img = NULL;
-    char *filename = malloc(3);
+    char *filename = malloc(sizeof(char)+1);
     
     
     
@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     while(fread(buffer, 512, 1, f))
     {
         //check header for jpeg
-        if (img == NULL && buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0 && inum == 000)
+        if (img == NULL && buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0 && inum == 00)
         {
             sprintf(filename, "%03i.jpg", inum);
             img = fopen(filename, "w");

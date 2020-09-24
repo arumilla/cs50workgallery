@@ -1,1 +1,1 @@
-# arumilla
+This is a collection of the work I've done while learning C and Python through the CS50x course. Each project can be reached from other branches of the repository. Some piece may not work without the supporting code provided by the course.

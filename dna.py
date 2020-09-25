@@ -3,7 +3,7 @@ import sys
 import csv
 import re
 
-
+#a program to check for matching dna
 
 if len(argv) != 3:
     print("Usage: python dna.py data.csv sequence.txt") 

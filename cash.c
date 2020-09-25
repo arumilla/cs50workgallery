@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <cs50.h>
-
+/*converts an amount of money into the least amount of it in coins*/
 int main(void)
 {
     int coins = 0;
